@@ -23,7 +23,7 @@ jobs:
     BuildRTM: "false"
 
   pool:
-    name: VSEngSS-MicroBuild2019
+    vmImage: windows-latest
     demands:
       - DotNetFramework
       - msbuild
@@ -44,7 +44,7 @@ jobs:
     BuildRTM: "true"
 
   pool:
-    name: VSEngSS-MicroBuild2019
+    vmImage: windows-latest
     demands:
       - DotNetFramework
       - msbuild
@@ -61,7 +61,7 @@ jobs:
     SDKVersionForBuild: $[dependencies.Initialize_Build.outputs['getSDKVersionForBuild.SDKVersionForBuild']]
   condition: "and(succeeded(),eq(variables['RunFunctionalTestsOnWindows'], 'true')) "
   pool:
-    name: VSEngSS-MicroBuild2019
+    vmImage: windows-latest
     demands:
         - DotNetFramework
         - msbuild
